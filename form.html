@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-cmn">
 <meta charset="UTF-8">
-<title>Page Title</title>
+<title>职业兴趣测试</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
-</style>
+    html {
+        scroll-behavior: smooth;
+    }
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+    /* Style buttons */
+    /* 
+ https://www.w3schools.com/howto/howto_css_outline_buttons.asp
+ https://www.w3schools.com/howto/howto_css_icon_buttons.asp
+ */
+    #goTopButton {
+        border-color: black;
+        /* Remove borders */
+        color: black;
+        /* White text */
+        padding: 2px 16px;
+        /* Some padding */
+        font-size: 48px;
+        /* Set a font size */
+        cursor: pointer;
+        /* Mouse pointer on hover */
+        position: fixed;
+        bottom: 4vw;
+        right: 4vw;
+    }
+
+    /* Darker background on mouse-over */
+    #goTopButton:hover {
+        background-color: whitesmoke;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
@@ -22,9 +49,16 @@
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
 <body>
+    <!--https://stackoverflow.com/questions/32102747/how-to-make-a-back-to-top-button-using-css-and-html-only/32102805-->
+    <a id="top"></a>
+    <!--https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-angle-double-up
+        http://jsfiddle.net/tWpkf-->
+    <a href="#top" id="goTopButton" class="btn"><i class="fa fa-angle-double-up"></i></a>
+
     <div class="container mt-5 mb-3" style="max-width: 800px; font-size: 22px;">
         <h2 style="text-align: center;">
-            <b>霍兰德职业兴趣测试</b>
+            <b>职业兴趣测试</b>
+
         </h2>
     </div>
     <div class="container mt-2 mb-4" style="max-width: 800px; font-size: 22px;">
@@ -36,7 +70,7 @@
         <div class="container mt-2" style="max-width: 840px; font-size: 22px;">
             <div class="row mt-2 mb-2">
                 <div class="col-sm my-auto">
-                    姓:
+                    姓<span style="color: red;">*</span>
                 </div>
                 <div class="col-sm-10 my-auto">
                     <input class="form-control" id="firstName" maxlength="30" required>
@@ -44,7 +78,7 @@
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col-sm my-auto">
-                    名:
+                    名<span style="color: red;">*</span>
                 </div>
                 <div class="col-sm-10 my-auto">
                     <input class="form-control" id="lastName" maxlength="30" required>
@@ -52,7 +86,7 @@
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col-sm my-auto">
-                    邮箱:
+                    邮箱<span style="color: red;">*</span>
                 </div>
                 <div class="col-sm-10 my-auto">
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" maxlength="50"
@@ -61,7 +95,15 @@
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col-sm my-auto">
-                    职业:
+                    电话号码<span style="color: red;">*</span>
+                </div>
+                <div class="col-sm-10 my-auto">
+                    <input class="form-control" id="phoneNo" maxlength="30" required>
+                </div>
+            </div>
+            <div class="row mt-2 mb-2">
+                <div class="col-sm my-auto">
+                    职业<span style="color: red;">*</span>
                 </div>
                 <div class="col-sm-10 my-auto">
                     <input class="form-control" id="occupation" maxlength="30" required>
@@ -69,21 +111,21 @@
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col-sm my-auto">
-                    岁数:
+                    生日日期<span style="color: red;">*</span>
                 </div>
                 <div class="col-sm-10 my-auto">
-                    <input type="number" class="form-control" id="age" maxlength="30" min="16" max="100" required>
+                    <input class="form-control" id="age" maxlength="30" required>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col-sm">
-                    简历:
+                    简历
                 </div>
                 <div class="col-sm-10 my-auto">
                     <div class="custom-file">
                         <!--https://stackoverflow.com/questions/51578469/bootstrap-4-custom-file-upload-and-sizing-->
                         <input type="file" class="custom-file-input form-control-sm" name="file" id="uploadFile"
-                            accept="application/msword, application/pdf" required>
+                            accept="application/msword, application/pdf">
                         <label id="fileLabel" class="custom-file-label col-form-label-sm" for="uploadFile">选择文件</label>
                     </div>
                 </div>
@@ -2096,14 +2138,38 @@
             <button id="submitButton" class="btn btn-outline-dark btn-lg btn-block mb-4">提交</button>
         </div>
     </form>
-    <script>        
+    <script>
+        // https://www.w3schools.com/js/js_function_parameters.asp
+        function postForm(data) {
+            // API Gateway for POST request. 
+            const postUrl = "";
+
+            fetch(`${postUrl}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    window.location.href = "completed.html";
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop()) {
+                $('#goTopButton').fadeIn();
+            } else {
+                $('#goTopButton').fadeOut();
+            }
+        });
+
         const fileInput = document.getElementById("uploadFile");
         const fileLabel = document.getElementById("fileLabel");
 
         fileInput.addEventListener("change", function (event) {
             fileLabel.innerHTML = fileInput.files[0].name;
         });
-        
+
         const form = document.getElementById("aptitudeForm");
         form.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -2117,6 +2183,7 @@
             data["firstName"] = document.getElementById('firstName').value;
             data["lastName"] = document.getElementById('lastName').value;
             data["email"] = document.getElementById('email').value;
+            data["phoneNo"] = document.getElementById('phoneNo').value;
             data["occupation"] = document.getElementById('occupation').value;
             data["age"] = document.getElementById('age').value;
 
@@ -2183,8 +2250,6 @@
                 fr.onload = f => {
                     // set the URL of Google Web Apps. 
                     const googleAppUrl = "";
-                    // API Gateway for POST request. 
-                    const postUrl = "";
                     // define file name and type.
                     const qs = new URLSearchParams({ filename: data["firstName"] + " " + data["lastName"], mimeType: file.type });
 
@@ -2194,21 +2259,15 @@
                         .then(e => {
                             console.log(e.fileUrl);
                             data["resume"] = e.fileUrl;
-                            fetch(`${postUrl}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-                                .then(response => response.json())
-                                .then(data => {
-                                    console.log('Success:', data);
-                                    window.location.href = "completed.html";
-                                })
-                                .catch((error) => {
-                                    console.error('Error:', error);
-                                });
+                            postForm(data);
                         })
                         .catch(err => console.log(err));
                 }
             }
-
-
+            else {
+                data["resume"] = "--";
+                postForm(data);
+            }
         });
 
 
