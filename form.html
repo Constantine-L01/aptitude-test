@@ -7,34 +7,101 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
-    html {
-        scroll-behavior: smooth;
+    body {
+        font-size: 16px;
     }
 
-    /* Style buttons */
-    /* 
- https://www.w3schools.com/howto/howto_css_outline_buttons.asp
- https://www.w3schools.com/howto/howto_css_icon_buttons.asp
- */
+    #activitySection {
+        background-color: snow;
+        border-top: 2px solid red;
+        border-bottom: 2px solid red;
+    }
+
+    #abilitySection {
+        background-color: ghostwhite;
+        border-top: 2px solid blue;
+        border-bottom: 2px solid blue;
+    }
+
+    #occupationSection {
+        background-color: floralwhite;
+        border-top: 2px solid yellow;
+        border-bottom: 2px solid yellow;
+    }
+
+    .splitLine {
+        display: none;
+    }
+
+    .redAsterisk {
+        color: red;
+    }
+
     #goTopButton {
-        border-color: black;
-        /* Remove borders */
-        color: black;
-        /* White text */
-        padding: 2px 16px;
-        /* Some padding */
-        font-size: 48px;
-        /* Set a font size */
-        cursor: pointer;
-        /* Mouse pointer on hover */
-        position: fixed;
-        bottom: 4vw;
-        right: 4vw;
+        display: none;
     }
 
-    /* Darker background on mouse-over */
-    #goTopButton:hover {
-        background-color: whitesmoke;
+    /* On screens that are 1000px or more */
+    @media only screen and (min-width: 1000px) {
+        body {
+            font-size: 22px;
+        }
+
+        #activitySection {
+            background-color: snow;
+            border-radius: 25px;
+            border: 2px solid red;
+        }
+
+        #abilitySection {
+            background-color: ghostwhite;
+            border-radius: 25px;
+            border: 2px solid blue;
+        }
+
+        #occupationSection {
+            background-color: floralwhite;
+            border-radius: 25px;
+            border: 2px solid yellow;
+        }
+
+        .splitLine {
+            display: block;
+            max-width: 900px;
+        }
+
+        .section {
+            max-width: 750px;
+        }
+
+        /* 
+        https://www.w3schools.com/howto/howto_css_outline_buttons.asp
+        https://www.w3schools.com/howto/howto_css_icon_buttons.asp
+        */
+        #goTopButton {
+            border-color: black;
+            /* Remove borders */
+            color: black;
+            /* White text */
+            padding: 2px 16px;
+            /* Some padding */
+            font-size: 36px;
+            /* Set a font size */
+            cursor: pointer;
+            /* Mouse pointer on hover */
+            position: fixed;
+            bottom: 4vw;
+            right: 4vw;
+        }
+
+        /* Darker background on mouse-over */
+        #goTopButton:hover {
+            background-color: whitesmoke;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
     }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -55,73 +122,73 @@
         http://jsfiddle.net/tWpkf-->
     <a href="#top" id="goTopButton" class="btn"><i class="fa fa-angle-double-up"></i></a>
 
-    <div class="container mt-5 mb-3" style="max-width: 800px; font-size: 22px;">
+    <div class="container mt-5 mb-3">
         <h2 style="text-align: center;">
             <b>职业兴趣测试</b>
 
         </h2>
     </div>
-    <div class="container mt-2 mb-4" style="max-width: 800px; font-size: 22px;">
+    <div class="container mt-2 mb-4">
         <h3 style="text-align: center;">
             <b>个人资料</b>
         </h3>
     </div>
     <form id="aptitudeForm">
-        <div class="container mt-2" style="max-width: 840px; font-size: 22px;">
+        <div class="section container mt-2">
             <div class="row mt-2 mb-2">
-                <div class="col-sm my-auto">
-                    姓<span style="color: red;">*</span>
+                <div class="col my-auto">
+                    姓<span class="redAsterisk">*</span>
                 </div>
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     <input class="form-control" id="firstName" maxlength="30" required>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm my-auto">
-                    名<span style="color: red;">*</span>
+                <div class="col my-auto">
+                    名<span class="redAsterisk">*</span>
                 </div>
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     <input class="form-control" id="lastName" maxlength="30" required>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm my-auto">
-                    邮箱<span style="color: red;">*</span>
+                <div class="col my-auto">
+                    邮箱<span class="redAsterisk">*</span>
                 </div>
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" maxlength="50"
                         required>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm my-auto">
-                    电话号码<span style="color: red;">*</span>
+                <div class="col my-auto">
+                    电话号码<span class="redAsterisk">*</span>
                 </div>
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     <input class="form-control" id="phoneNo" maxlength="30" required>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm my-auto">
-                    职业<span style="color: red;">*</span>
+                <div class="col my-auto">
+                    职业<span class="redAsterisk">*</span>
                 </div>
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     <input class="form-control" id="occupation" maxlength="30" required>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm my-auto">
-                    生日日期<span style="color: red;">*</span>
+                <div class="col my-auto">
+                    生日日期<span class="redAsterisk">*</span>
                 </div>
-                <div class="col-sm-10 my-auto">
-                    <input class="form-control" id="age" maxlength="30" required>
+                <div class="col-9 my-auto">
+                    <input type="date" class="form-control" id="birthday" min="01-01-1920" required>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm">
+                <div class="col my-auto">
                     简历
                 </div>
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     <div class="custom-file">
                         <!--https://stackoverflow.com/questions/51578469/bootstrap-4-custom-file-upload-and-sizing-->
                         <input type="file" class="custom-file-input form-control-sm" name="file" id="uploadFile"
@@ -131,2005 +198,2007 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="splitLine container">
             <hr />
         </div>
-        <div class="container mt-2 mb-3 p-0" style="max-width: 800px; font-size: 22px;">
-            <div>
-                A. 活动
-            </div>
-            <div>
-                在下列各项选项做出你的选择，“是”表示你喜欢，“否”则表示你不喜欢或不感兴趣。
+        <div class="section container p-3">
+            <div class="mb-3">
+                <div>
+                    A. 活动
+                </div>
+                <div>
+                    在下列各项选项做出你的选择，“是”表示你喜欢，“否”则表示你不喜欢或不感兴趣。
+                </div>
             </div>
         </div>
-        <div class="container mb-4 p-3"
-            style="max-width: 800px; font-size: 22px; background-color: snow; border-radius: 25px; border: 2px solid red;">
+        <div id="activitySection" class="section container mb-4 p-3">
 
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     阅读科学书刊杂志
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="0" id="0" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="0" id="0" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     在试验室工作
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="1" id="1" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="1" id="1" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     参与科研工作
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="2" id="2" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="2" id="2" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     自发阅读专家论著
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="3" id="3" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="3" id="3" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     解答数学或棋类游戏难题
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="4" id="4" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="4" id="4" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读物理课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="5" id="5" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="5" id="5" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读化学课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="6" id="6" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="6" id="6" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读几何课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="7" id="7" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="7" id="7" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读生物课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="8" id="8" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="8" id="8" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修整电器
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="9" id="9" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="9" id="9" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修理汽车
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="10" id="10" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="10" id="10" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     做木工
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="11" id="11" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="11" id="11" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     驾驶货车或拖拉
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="12" id="12" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="12" id="12" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修理机械
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="13" id="13" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="13" id="13" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     使用金工机床
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="14" id="14" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="14" id="14" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读汽车机械课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="15" id="15" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="15" id="15" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读木工课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="16" id="16" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="16" id="16" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修理电单车
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="17" id="17" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="17" id="17" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     写信给朋友
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="18" id="18" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="18" id="18" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     参加社交组织
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="19" id="19" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="19" id="19" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     帮助他人解决个人问题
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="20" id="20" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="20" id="20" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     照顾孩童
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="21" id="21" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="21" id="21" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     参加舞会或聚会
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="22" id="22" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="22" id="22" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     读心理学书籍
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="23" id="23" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="23" id="23" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     出席座谈会或研讨会
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="24" id="24" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="24" id="24" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     观看体育比赛
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="25" id="25" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="25" id="25" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     结交新朋友
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="26" id="26" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="26" id="26" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     素描、摄影或绘画
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="27" id="27" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="27" id="27" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     演奏乐器
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="28" id="28" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="28" id="28" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     设计家具或建筑
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="29" id="29" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="29" id="29" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     参与乐队或交响乐团演奏
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="30" id="30" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="30" id="30" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     出席朗诵会或音乐会
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="31" id="31" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="31" id="31" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     读剧本
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="32" id="32" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="32" id="32" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     欣赏或写诗
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="33" id="33" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="33" id="33" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     进修艺术课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="34" id="34" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="34" id="34" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     把自己的工作台和房间收拾整洁
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="35" id="35" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="35" id="35" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     打文件或信件
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="36" id="36" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="36" id="36" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     计算与生意或簿记有关的数字
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="37" id="37" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="37" id="37" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     操作各种商用机器
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="38" id="38" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="38" id="38" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     维持开销的详细记录
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="39" id="39" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="39" id="39" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读打字课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="40" id="40" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="40" id="40" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读商科课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="41" id="41" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="41" id="41" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     修读商用数学课程
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="42" id="42" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="42" id="42" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     把文件，报告，记录等归档
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="43" id="43" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="43" id="43" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     影响他人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="44" id="44" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="44" id="44" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     推销货品
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="45" id="45" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="45" id="45" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     评论政治
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="46" id="46" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="46" id="46" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     自己开业
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="47" id="47" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="47" id="47" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     出席研讨会
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="48" id="48" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="48" id="48" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     演讲
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="49" id="49" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="49" id="49" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     监督别人工作
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="50" id="50" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="50" id="50" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     会见重要人物
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="51" id="51" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="51" id="51" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     领导组员达成目标
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="52" id="52" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="danger">
+                        <input name="52" id="52" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="danger">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="splitLine container">
             <hr />
         </div>
-        <div class="container mt-2 mb-3 p-0" style="max-width: 800px; font-size: 22px;">
-            <div>
-                B. 能力
-            </div>
-            <div>
-                在下列各项选项做出你的选择，“是”表示你有能力胜任，“否”则表示你从未尝试或不能办好。
+        <div class="section container p-2">
+            <div class="mt-2 mb-3">
+                <div>
+                    B. 能力
+                </div>
+                <div>
+                    在下列各项选项做出你的选择，“是”表示你有能力胜任，“否”则表示你从未尝试或不能办好。
+                </div>
             </div>
         </div>
-        <div class="container mb-4 p-3"
-            style="max-width: 800px; font-size: 22px; background-color: ghostwhite; border-radius: 25px; border: 2px solid blue;">
 
+        <div id="abilitySection" class="section container mb-4 p-3">
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会使用电压计
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="53" id="53" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="53" id="53" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会使用电动工具如电钻，磨床或缝纽机
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="54" id="54" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="54" id="54" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能重新上漆栋旧或染污的家具
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="55" id="55" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="55" id="55" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能看蓝图
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="56" id="56" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="56" id="56" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会修理家具
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="57" id="57" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="57" id="57" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会机械制图
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="58" id="58" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="58" id="58" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会做简单的电视修理
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="59" id="59" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="59" id="59" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会做简单的排水管修理
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="60" id="60" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="60" id="60" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会演奏乐器
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="61" id="61" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="61" id="61" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能参加二或四重唱的合唱团
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="62" id="62" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="62" id="62" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能独唱或独奏
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="63" id="63" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="63" id="63" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能演戏
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="64" id="64" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="64" id="64" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能画人物素描而且画得很像
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="65" id="65" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="65" id="65" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能作画或雕塑
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="66" id="66" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="66" id="66" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能造陶器
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="67" id="67" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="67" id="67" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能设计服装，海报或家具
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="68" id="68" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="68" id="68" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我小说和诗都写得不错
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="69" id="69" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="69" id="69" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我曾在中学／高中／初级学院／大学被选为同学组织执委
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="70" id="70" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="70" id="70" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能监督他人的工作
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="71" id="71" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="71" id="71" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我有过人的精力和热忱
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="72" id="72" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="72" id="72" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我有办法使别人依我的方法办事
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="73" id="73" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="73" id="73" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我擅长于将想法推销给他人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="74" id="74" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="74" id="74" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我曾组织过俱乐部或其他活动
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="75" id="75" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="75" id="75" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我已开创了自己的事业或机构
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="76" id="76" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="76" id="76" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我知道如何成为一个成功的领导人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="77" id="77" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="77" id="77" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我善于辩论
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="78" id="78" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="78" id="78" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我明白真空管的原理
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="79" id="79" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="79" id="79" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我明白放射性元素的 “半衰期”
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="80" id="80" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="80" id="80" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会使用对数表
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="81" id="81" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="81" id="81" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会使用显微镜
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="82" id="82" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="82" id="82" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能辨认三个星座
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="83" id="83" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="83" id="83" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能叙述白血球的功能
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="84" id="84" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="84" id="84" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能解释简单的化学方程式
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="85" id="85" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="85" id="85" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我知道为什么人造卫星不会掉下来
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="86" id="86" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="86" id="86" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我曾参加科学博览或竞赛
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="87" id="87" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="87" id="87" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我善于向人解说
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="88" id="88" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="88" id="88" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我曾参加募捐活动
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="89" id="89" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="89" id="89" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我善于应酬年龄比我大的人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="90" id="90" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="90" id="90" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我是个好主人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="91" id="91" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="91" id="91" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我善于教导小孩子
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="92" id="92" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="92" id="92" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我善于帮助有困难或情绪不好的人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="93" id="93" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="93" id="93" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我曾是医院，诊疗所，疗养院的志愿工作者
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="94" id="94" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="94" id="94" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能策划教会或社会工作
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="95" id="95" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="95" id="95" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我善于判断人的个性
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="96" id="96" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="96" id="96" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我每分钟能打 40 个字
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="97" id="97" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="97" id="97" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会使用影印机或传真机
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="98" id="98" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="98" id="98" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会速记
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="99" id="99" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="99" id="99" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我曾任白领工作
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="100" id="100" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="100" id="100" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会用计算机
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="101" id="101" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="101" id="101" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能在短时间内做完许多文书工作
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="102" id="102" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="102" id="102" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能使用个人电脑
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="103" id="103" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="103" id="103" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我会簿记
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="104" id="104" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="104" id="104" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     我能精确的记录买卖账目
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="105" id="105" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="primary">
+                        <input name="105" id="105" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="primary">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="splitLine container">
             <hr />
         </div>
-        <div class="container mt-2 mb-3 p-0" style="max-width: 800px; font-size: 22px;">
-            <div>
-                C. 职业
-            </div>
-            <div>
-                这里收集你对各项职业的感受和态度，“是”表示对该工作感兴趣，“否”表示你对该工作不感兴趣。
+        <div class="section container p-2">
+            <div class="mt-2 mb-3">
+                <div>
+                    C. 职业
+                </div>
+                <div>
+                    这里收集你对各项职业的感受和态度，“是”表示对该工作感兴趣，“否”表示你对该工作不感兴趣。
+                </div>
             </div>
         </div>
-        <div class="container mb-4 p-3"
-            style="max-width: 800px; font-size: 22px; background-color: floralwhite; border-radius: 25px; border: 2px solid yellow;">
-
+        <div id="occupationSection" class="section container mb-4 p-3">
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     飞机技工
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="106" id="106" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="106" id="106" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     汽车技工
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="107" id="107" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="107" id="107" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     木匠
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="108" id="108" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="108" id="108" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     推土机司机
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="109" id="109" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="109" id="109" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     调查员或测量员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="110" id="110" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="110" id="110" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     工地督察员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="111" id="111" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="111" id="111" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     无线电通讯员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="112" id="112" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="112" id="112" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     添油站工人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="113" id="113" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="113" id="113" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     树木医生
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="114" id="114" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="114" id="114" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     货车司机
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="115" id="115" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="115" id="115" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     机械师
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="116" id="116" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="116" id="116" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     工程师
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="117" id="117" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="117" id="117" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     社会学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="118" id="118" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="118" id="118" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     中学教师
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="119" id="119" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="119" id="119" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     少年犯罪问题专家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="120" id="120" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="120" id="120" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     语言治疗师
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="121" id="121" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="121" id="121" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     婚姻辅导员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="122" id="122" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="122" id="122" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     校长
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="123" id="123" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="123" id="123" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     社会科学教师
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="124" id="124" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="124" id="124" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     福利工作主管
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="125" id="125" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="125" id="125" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     青年营主管
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="126" id="126" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="126" id="126" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     个人辅导员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="127" id="127" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="127" id="127" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     精神病人调查员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="128" id="128" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="128" id="128" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     职业辅导员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="129" id="129" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="129" id="129" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     气象员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="130" id="130" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="130" id="130" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     生物学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="131" id="131" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="131" id="131" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     天文学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="132" id="132" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="132" id="132" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     医药化验室技工
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="134" id="134" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="134" id="134" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     动物学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="135" id="135" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="135" id="135" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     化学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="136" id="136" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="136" id="136" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     独立研究科学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="137" id="137" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="137" id="137" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     科技文章作者
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="138" id="138" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="138" id="138" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     科技刊物编辑
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="139" id="139" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="139" id="139" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     植物学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="140" id="140" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="140" id="140" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     科研工作者
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="141" id="141" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="141" id="141" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     物理学家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="142" id="142" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="142" id="142" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     货币投机者
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="143" id="143" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="143" id="143" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     买办
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="144" id="144" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="144" id="144" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     广告商营业代表
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="145" id="145" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="145" id="145" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     厂家营业代表
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="146" id="146" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="146" id="146" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     电视导播
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="147" id="147" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="147" id="147" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     旅店经理
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="148" id="148" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="148" id="148" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     业务执行员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="149" id="149" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="149" id="149" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     餐馆经理
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="150" id="150" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="150" id="150" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     礼仪负责人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="151" id="151" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="151" id="151" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     促销人员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="152" id="152" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="152" id="152" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     体育促销员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="153" id="153" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="153" id="153" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     营业经理
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="154" id="154" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="154" id="154" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     诗人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="155" id="155" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="155" id="155" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     交响乐队指挥
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="156" id="156" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="156" id="156" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     音乐家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="157" id="157" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="157" id="157" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     作家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="158" id="158" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="158" id="158" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     广告美术员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="159" id="159" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="159" id="159" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     自由撰稿人
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="160" id="160" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="160" id="160" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     新闻工作者
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="161" id="161" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="161" id="161" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     人像画家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="162" id="162" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="162" id="162" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     音乐会演唱家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="163" id="163" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="163" id="163" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     作曲家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="164" id="164" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="164" id="164" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     剧作家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="165" id="165" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="165" id="165" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     卡通画家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="166" id="166" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="166" id="166" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     簿记员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="167" id="167" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="167" id="167" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     商业教员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="168" id="168" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="168" id="168" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     预算监察员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="169" id="169" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="169" id="169" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     合格公共会计师
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="170" id="170" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="170" id="170" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     信用调查员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="171" id="171" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="171" id="171" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     法庭速记员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="172" id="172" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="172" id="172" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     银行出纳员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="173" id="173" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="173" id="173" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     税务专家
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="174" id="174" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="174" id="174" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     存货管理员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="175" id="175" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="175" id="175" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     IBM设备操作员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="176" id="176" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="176" id="176" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     金融分析员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="177" id="177" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="177" id="177" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col-sm-10 my-auto">
+                <div class="col-9 my-auto">
                     成本估值员
                 </div>
-                <div class="col-sm my-auto">
+                <div class="col my-auto">
                     <div class="float-right">
-                        <input name="178" id="178" type="checkbox" data-on="是" data-off="否" data-toggle="toggle"
-                            data-onstyle="warning">
+                        <input name="178" id="178" type="checkbox" class="switch" data-on="是" data-off="否"
+                            data-toggle="toggle" data-onstyle="warning">
                     </div>
                 </div>
             </div>
@@ -2139,10 +2208,18 @@
         </div>
     </form>
     <script>
+        if (window.innerWidth < 1000) {
+            let switches = document.getElementsByClassName("switch");
+            let j;
+            for (j = 0; j < switches.length; j++) {
+                switches[j].setAttribute("data-size", "sm");
+            }
+        }
+
         // https://www.w3schools.com/js/js_function_parameters.asp
         function postForm(data) {
             // API Gateway for POST request. 
-            const postUrl = "";
+            const postUrl = "URL of API Gateway for POST request";
 
             fetch(`${postUrl}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
                 .then(response => response.json())
@@ -2175,9 +2252,21 @@
             event.preventDefault();
 
             const submitButton = document.getElementById("submitButton");
-            submitButton.innerHTML = "提交中。。。";
             submitButton.disabled = true;
-
+            let k = 0;
+            setInterval(function(){
+                if(k % 3 == 0){
+                    submitButton.innerHTML = "提交中。  ";
+                }
+                else if(k % 3 == 1){
+                    submitButton.innerHTML = "提交中。。";
+                }
+                else if(k % 3 == 2){
+                    submitButton.innerHTML = "提交中。。。";
+                }
+                k++;
+            }, 750)     
+            
             let data = {};
 
             data["firstName"] = document.getElementById('firstName').value;
@@ -2185,7 +2274,7 @@
             data["email"] = document.getElementById('email').value;
             data["phoneNo"] = document.getElementById('phoneNo').value;
             data["occupation"] = document.getElementById('occupation').value;
-            data["age"] = document.getElementById('age').value;
+            data["birthday"] = document.getElementById('birthday').value;
 
             let helper = 0, persuader = 0, organizer = 0, creator = 0, thinker = 0, builder = 0;
             let i = 0;
@@ -2249,7 +2338,7 @@
                 fr.readAsArrayBuffer(file);
                 fr.onload = f => {
                     // set the URL of Google Web Apps. 
-                    const googleAppUrl = "";
+                    const googleAppUrl = "URL of Google Web Apps";
                     // define file name and type.
                     const qs = new URLSearchParams({ filename: data["firstName"] + " " + data["lastName"], mimeType: file.type });
 
