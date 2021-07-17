@@ -5,10 +5,47 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+    rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
 <style>
     body {
         font-size: 16px;
+    }
+
+    #banner {
+        /* Define certain properties of navigation bar, eg. z-index, make the bullet of the list gone, hide the overflow content, and fix at top of screen */
+        box-shadow: -1px 2px 2px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    #footer {
+        text-align: center;
+        box-shadow: -1px -2px 2px -2px rgba(0,0,0,0.2);
+        height: 5vh;
+        padding-top: 2vh;
+        font-size: 20px;
+    }
+
+    #testTitle {
+        text-align: center;
+        font-size: 22px;
+        padding-top: 2vh;
+        padding-bottom: 1vh;
+    }
+
+    #personalInfo {
+        text-align: center;
+        font-size: 20px;
+        padding-bottom: 1vh;
     }
 
     #activitySection {
@@ -41,10 +78,31 @@
         display: none;
     }
 
+    #goTopIcon {
+        display: none;
+    }
+
     /* On screens that are 1000px or more */
     @media only screen and (min-width: 1000px) {
         body {
             font-size: 22px;
+        }
+
+        #testTitle {
+            text-align: center;
+            font-size: 28px;
+            padding-top: 4vh;
+            padding-bottom: 2vh;
+        }
+        
+        #footer {
+        font-size: 26px;
+    }
+
+        #personalInfo {
+            text-align: center;
+            font-size: 26px;
+            padding-bottom: 2vh;
         }
 
         #activitySection {
@@ -92,6 +150,7 @@
             position: fixed;
             bottom: 4vw;
             right: 4vw;
+            display: inline;
         }
 
         /* Darker background on mouse-over */
@@ -99,39 +158,34 @@
             background-color: whitesmoke;
         }
 
+        #goTopIcon {
+        display: inline;
+    }
+
+
         html {
             scroll-behavior: smooth;
         }
     }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
-    rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
 <body>
     <!--https://stackoverflow.com/questions/32102747/how-to-make-a-back-to-top-button-using-css-and-html-only/32102805-->
-    <a id="top"></a>
-    <!--https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-angle-double-up
-        http://jsfiddle.net/tWpkf-->
-    <a href="#top" id="goTopButton" class="btn"><i class="fa fa-angle-double-up"></i></a>
+    <div id="banner" class="pt-2 pb-2">
+        <img srcset="logo-mobile.jpg 480w, logo-desktop.jpg 800w" sizes="(max-width: 600px) 480px, 800px"
+            src="logo-desktop.jpg" alt="Logo">
+    </div>
 
-    <div class="container mt-5 mb-3">
-        <h2 style="text-align: center;">
+    <div class="container">
+        <div id="testTitle">
             <b>职业兴趣测试</b>
 
-        </h2>
+        </div>
     </div>
-    <div class="container mt-2 mb-4">
-        <h3 style="text-align: center;">
+    <div class="container">
+        <div id="personalInfo">
             <b>个人资料</b>
-        </h3>
+        </div>
     </div>
     <form id="aptitudeForm">
         <div class="section container mt-2">
@@ -2207,6 +2261,13 @@
             <button id="submitButton" class="btn btn-outline-dark btn-lg btn-block mb-4">提交</button>
         </div>
     </form>
+
+    <!--https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-angle-double-up
+        http://jsfiddle.net/tWpkf-->
+    <a href="#banner" id="goTopButton" ><i id="goTopIcon" class="fa fa-angle-double-up"></i></a>
+    <div id="footer">
+        <p>Wisdom Life Agency &copy; 2021</p>        
+    </div>
     <script>
         if (window.innerWidth < 1000) {
             let switches = document.getElementsByClassName("switch");
@@ -2219,7 +2280,7 @@
         // https://www.w3schools.com/js/js_function_parameters.asp
         function postForm(data) {
             // API Gateway for POST request. 
-            const postUrl = "URL of API Gateway for POST request";
+            const postUrl = "";
 
             fetch(`${postUrl}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
                 .then(response => response.json())
@@ -2254,19 +2315,19 @@
             const submitButton = document.getElementById("submitButton");
             submitButton.disabled = true;
             let k = 0;
-            setInterval(function(){
-                if(k % 3 == 0){
+            setInterval(function () {
+                if (k % 3 == 0) {
                     submitButton.innerHTML = "提交中。  ";
                 }
-                else if(k % 3 == 1){
+                else if (k % 3 == 1) {
                     submitButton.innerHTML = "提交中。。";
                 }
-                else if(k % 3 == 2){
+                else if (k % 3 == 2) {
                     submitButton.innerHTML = "提交中。。。";
                 }
                 k++;
-            }, 750)     
-            
+            }, 750)
+
             let data = {};
 
             data["firstName"] = document.getElementById('firstName').value;
@@ -2338,7 +2399,7 @@
                 fr.readAsArrayBuffer(file);
                 fr.onload = f => {
                     // set the URL of Google Web Apps. 
-                    const googleAppUrl = "URL of Google Web Apps";
+                    const googleAppUrl = "";
                     // define file name and type.
                     const qs = new URLSearchParams({ filename: data["firstName"] + " " + data["lastName"], mimeType: file.type });
 
