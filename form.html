@@ -16,157 +16,8 @@
 <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
     rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-
+<link rel="stylesheet" href="form.css">
 <style>
-    body {
-        font-size: 16px;
-    }
-
-    #banner {
-        /* Define certain properties of navigation bar, eg. z-index, make the bullet of the list gone, hide the overflow content, and fix at top of screen */
-        box-shadow: -1px 2px 2px -2px rgba(0, 0, 0, 0.2);
-    }
-
-    #footer {
-        text-align: center;
-        box-shadow: -1px -2px 2px -2px rgba(0,0,0,0.2);
-        height: 5vh;
-        padding-top: 2vh;
-        font-size: 20px;
-    }
-
-    #testTitle {
-        text-align: center;
-        font-size: 22px;
-        padding-top: 2vh;
-        padding-bottom: 1vh;
-    }
-
-    #personalInfo {
-        text-align: center;
-        font-size: 20px;
-        padding-bottom: 1vh;
-    }
-
-    #activitySection {
-        background-color: snow;
-        border-top: 2px solid red;
-        border-bottom: 2px solid red;
-    }
-
-    #abilitySection {
-        background-color: ghostwhite;
-        border-top: 2px solid blue;
-        border-bottom: 2px solid blue;
-    }
-
-    #occupationSection {
-        background-color: floralwhite;
-        border-top: 2px solid yellow;
-        border-bottom: 2px solid yellow;
-    }
-
-    .splitLine {
-        display: none;
-    }
-
-    .redAsterisk {
-        color: red;
-    }
-
-    #goTopButton {
-        display: none;
-    }
-
-    #goTopIcon {
-        display: none;
-    }
-
-    /* On screens that are 1000px or more */
-    @media only screen and (min-width: 1000px) {
-        body {
-            font-size: 22px;
-        }
-
-        #testTitle {
-            text-align: center;
-            font-size: 28px;
-            padding-top: 4vh;
-            padding-bottom: 2vh;
-        }
-        
-        #footer {
-        font-size: 26px;
-    }
-
-        #personalInfo {
-            text-align: center;
-            font-size: 26px;
-            padding-bottom: 2vh;
-        }
-
-        #activitySection {
-            background-color: snow;
-            border-radius: 25px;
-            border: 2px solid red;
-        }
-
-        #abilitySection {
-            background-color: ghostwhite;
-            border-radius: 25px;
-            border: 2px solid blue;
-        }
-
-        #occupationSection {
-            background-color: floralwhite;
-            border-radius: 25px;
-            border: 2px solid yellow;
-        }
-
-        .splitLine {
-            display: block;
-            max-width: 900px;
-        }
-
-        .section {
-            max-width: 750px;
-        }
-
-        /* 
-        https://www.w3schools.com/howto/howto_css_outline_buttons.asp
-        https://www.w3schools.com/howto/howto_css_icon_buttons.asp
-        */
-        #goTopButton {
-            border-color: black;
-            /* Remove borders */
-            color: black;
-            /* White text */
-            padding: 2px 16px;
-            /* Some padding */
-            font-size: 36px;
-            /* Set a font size */
-            cursor: pointer;
-            /* Mouse pointer on hover */
-            position: fixed;
-            bottom: 4vw;
-            right: 4vw;
-            display: inline;
-        }
-
-        /* Darker background on mouse-over */
-        #goTopButton:hover {
-            background-color: whitesmoke;
-        }
-
-        #goTopIcon {
-        display: inline;
-    }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-    }
 </style>
 
 <body>
@@ -179,7 +30,6 @@
     <div class="container">
         <div id="testTitle">
             <b>职业兴趣测试</b>
-
         </div>
     </div>
     <div class="container">
@@ -2264,9 +2114,9 @@
 
     <!--https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-angle-double-up
         http://jsfiddle.net/tWpkf-->
-    <a href="#banner" id="goTopButton" ><i id="goTopIcon" class="fa fa-angle-double-up"></i></a>
+    <a href="#banner" id="goTopButton"><i id="goTopIcon" class="fa fa-angle-double-up"></i></a>
     <div id="footer">
-        <p>Wisdom Life Agency &copy; 2021</p>        
+        <p>&copy; 2021, Wisdom Life Agency</p>
     </div>
     <script>
         if (window.innerWidth < 1000) {
